@@ -1,6 +1,9 @@
 ---
-
 - hosts: all  # noqa: name[play]
-
+  connection: winrm
+  vars: 
+    ansible_winrm_transport: basic
+    ansible_winrm_server_cert_validation: ignore
+    
   roles:
-      - role: "{{ playbook_dir }}"
+    - role: "{{ playbook_dir }}"
